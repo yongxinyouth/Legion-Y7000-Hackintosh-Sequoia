@@ -20,6 +20,19 @@
 | **蓝牙** | Broadcom **BCM20702A0** (Foxconn USB) |
 | **触控板** | I2C + PS/2 |
 
+## 🧩 OpenCore 版本
+
+| 组件 | 版本 |
+|:----|:----:|
+| **OpenCorePkg** | **1.0.7** (2026-03-20) |
+| **Lilu** | 1.7.2 |
+| **VirtualSMC** | 1.3.7 |
+| **WhateverGreen** | 1.7.0 |
+| **AppleALC** | 1.9.7 |
+| **SMBIOS 机型** | **MacBookPro16,3** |
+
+> 如需升级 OpenCore，推荐从 [SourceForge](https://sourceforge.net/projects/opencorepkg.mirror/) 下载（GitHub 有时连接慢），或使用 [OCAT](https://github.com/ic005k/OCAuxiliaryTools) 在线升级。
+
 ## ✅ 正常工作
 
 | 功能 | 状态 |

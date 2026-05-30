@@ -54,6 +54,45 @@
 
 本 EFI 包含我的 Legion Y7000 USB 映射（UTBMap.kext），如果你的机型不同，请用 USBToolBox 重新生成。
 
+### 3. OpenCore Legacy Patcher (OCLP) 打补丁
+
+本 EFI 的 Broadcom WiFi 驱动依赖 **OCLP 系统补丁**。首次使用必须执行以下步骤：
+
+**① 下载 OCLP**
+
+从 [Dortania/OpenCore-Legacy-Patcher Releases](https://github.com/dortania/OpenCore-Legacy-Patcher/releases) 下载最新版 `OpenCore-Patcher-GUI.app.zip`
+
+> 推荐版本：**v2.4.1** 或更新
+
+**② 安装 OCLP**
+
+解压后将 `OpenCore-Patcher.app` 拖入 **应用程序** 文件夹
+
+**③ 应用 Root 补丁**
+
+```bash
+# 打开 OCLP
+open /Applications/OpenCore-Patcher.app
+
+# 点击: Post-Install Root Patch → Start Root Patching
+# 等待补丁应用完成 → 重启
+```
+
+或在终端中直接运行：
+```bash
+/Applications/OpenCore-Patcher.app/Contents/MacOS/OpenCore-Patcher --patch_sys_vol
+```
+
+**④ 验证**
+
+重启后 WiFi 应自动可用。可在系统信息中查看：
+- Wi-Fi → 已连接
+- 蓝牙 → 已开启
+
+> ⚠️ **注意**：OCLP 补丁会修改系统根卷（/System/Library/Extensions/）。macOS 系统更新后会清除补丁，更新后需**重新运行 OCLP 打补丁**。
+>
+> ✅ OCLP 与本 EFI 的蓝牙修复方案（BlueToolFixup 2.6.8）兼容。
+
 ## ⚠️ 蓝牙修复说明
 
 蓝牙芯片 **BCM20702A0** 上有一个已知问题：
